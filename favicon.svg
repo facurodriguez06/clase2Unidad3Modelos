@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E1422"/>
+      <stop offset="100%" stop-color="#060911"/>
+    </linearGradient>
+    <linearGradient id="bidirGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="50%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  
+  <!-- Base Squircle -->
+  <rect x="6" y="6" width="116" height="116" rx="28" fill="url(#bgGrad)" stroke="#192236" stroke-width="3"/>
+  <rect x="10" y="10" width="108" height="108" rx="24" fill="none" stroke="#6366F1" stroke-width="1.5" stroke-opacity="0.35"/>
+  
+  <!-- Bidirectional Attention Double Arrow (Horizontal Core) -->
+  <path d="M 28 64 L 100 64" stroke="url(#bidirGrad)" stroke-width="3.5" stroke-linecap="round" filter="url(#glow)"/>
+  <polyline points="36,58 26,64 36,70" fill="none" stroke="#06B6D4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="92,58 102,64 92,70" fill="none" stroke="#F59E0B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Left Token Box: [CLS] -->
+  <rect x="22" y="78" width="24" height="20" rx="5" fill="#0E1422" stroke="#06B6D4" stroke-width="2"/>
+  <circle cx="34" cy="88" r="3.5" fill="#06B6D4"/>
+
+  <!-- Center Token Box: [MASK] -->
+  <rect x="52" y="78" width="24" height="20" rx="5" fill="#192236" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="3,2" filter="url(#glow)"/>
+  <rect x="58" y="84" width="12" height="8" rx="2" fill="#F59E0B"/>
+
+  <!-- Right Token Box: [SEP] -->
+  <rect x="82" y="78" width="24" height="20" rx="5" fill="#0E1422" stroke="#6366F1" stroke-width="2"/>
+  <circle cx="94" cy="88" r="3.5" fill="#6366F1"/>
+
+  <!-- Encoder Layers Stack Line -->
+  <line x1="64" y1="78" x2="64" y2="50" stroke="#F59E0B" stroke-width="3" stroke-linecap="round" filter="url(#glow)"/>
+  <polygon points="59,50 64,42 69,50" fill="#F59E0B"/>
+
+  <!-- Predicted Word Node [Top Output Token] -->
+  <circle cx="64" cy="30" r="8" fill="#0E1422" stroke="#10B981" stroke-width="2.5" filter="url(#glow)"/>
+  <circle cx="64" cy="30" r="3.5" fill="#10B981"/>
+</svg>
